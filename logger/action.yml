@@ -1,0 +1,23 @@
+name: Logging
+
+inputs:
+
+  color:
+    required: true
+    type: string
+
+  message:
+    required: true
+    type: string
+
+runs:
+  using: "composite"
+  steps:
+
+    # -------------------------------- Linux ---------------------------------
+    
+    - name: "Actions path"
+      shell: bash
+      run: |
+        echo "github.action_path = ${{ github.action_path }}"
+        echo "GITHUB_PATH = $GITHUB_PATH"
