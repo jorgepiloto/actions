@@ -16,8 +16,14 @@ runs:
 
     # -------------------------------- Linux ---------------------------------
     
-    - name: "Actions path"
+    - name: "Include scripts"
       shell: bash
       run: |
-        echo "github.action_path = ${{ github.action_path }}"
-        echo "GITHUB_PATH = $GITHUB_PATH"
+        echo ${{ github.action_path }} >> $GITHUB_PATH
+        ls ${{ github.action_path }}/../
+        source ${{ github.action_path }}/../other-folder/script-foo.sh
+
+    - name: ""
+      shell: bash
+      run: |
+        pecho "Hello actions" "RED"
